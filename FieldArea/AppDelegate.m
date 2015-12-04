@@ -20,8 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Override point for customization after application launch.
-        [Parse setApplicationId:@"PxTAVHIEVVriC7qUj6OVoLxb7WblN91MTA0TnEQi"
-                       clientKey:@"kuXuQSWtgUSTCWZN5VCqaPAi3GyNzhvRsBYY3j3r"];
+//        [Parse setApplicationId:@"PxTAVHIEVVriC7qUj6OVoLxb7WblN91MTA0TnEQi"
+//                       clientKey:@"kuXuQSWtgUSTCWZN5VCqaPAi3GyNzhvRsBYY3j3r"];
+        [Parse setApplicationId:@"QM3s9GfI1NEHQ607XJ602sVYW60453lL7UResTRf"
+                      clientKey:@"3cFbkj68tuwKbHQBhzi3ddStZEIVGObL2b39JYtq"];
         [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         [[FBSDKApplicationDelegate sharedInstance] application:application
                                  didFinishLaunchingWithOptions:launchOptions];
