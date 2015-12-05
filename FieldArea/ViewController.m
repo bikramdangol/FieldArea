@@ -23,7 +23,14 @@
         FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
         loginButton.center = self.view.center;
         loginButton.delegate = self;
+        loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
         [self.view addSubview:loginButton];
+        
+        if ([FBSDKAccessToken currentAccessToken]) {
+                // User is logged in, do work such as go to next view controller.
+                [self saveLoggedInUserInformation];
+                
+        }
         
 //        PFUser *user = [PFUser user];
 //        user.username = @"fieldarea";
@@ -55,6 +62,7 @@
 - (void) loginButton:	(FBSDKLoginButton *)loginButton didCompleteWithResult:	(FBSDKLoginManagerLoginResult *)result error: (NSError *)error{
         if (!error) {
                 NSLog(@"Login successful");
+                [self saveLoggedInUserInformation];
         }
         else
         {
@@ -66,6 +74,24 @@
 - (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
 {
       NSLog(@"Logged Out");  
+}
+
+- (void) saveLoggedInUserInformation
+{
+        NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+        [parameters setValue:@"id,name,email" forKey:@"fields"];
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                         PFObject *fbCurrentUserID = [PFObject objectWithClassName:@"FBCurrentUserID"];
+                         fbCurrentUserID[@"currentUserID"] = [FBSDKAccessToken currentAccessToken].userID;
+                         fbCurrentUserID[@"currentUsername"] = result[@"name"];
+                         fbCurrentUserID[@"currentUserEmail"] = result[@"email"];
+                         NSLog(@"fetched user:%@", result);
+                         [fbCurrentUserID saveInBackground];
+                 }
+         }];
+
 }
 
 @end
