@@ -66,7 +66,9 @@ FBSDKLoginButton *loginButton;
 - (void) loginButton:	(FBSDKLoginButton *)loginButton didCompleteWithResult:	(FBSDKLoginManagerLoginResult *)result error: (NSError *)error{
         if (!error) {
                 NSLog(@"Login successful");
+                [self signUpInParse];
                 [self saveLoggedInUserInformation];
+                [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
         }
         else
         {
@@ -96,6 +98,33 @@ FBSDKLoginButton *loginButton;
                  }
          }];
 
+}
+
+// Added this method just to save facebook ID as a parse username to create a parse user.
+- (void) signUpInParse
+{
+        NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+        [parameters setValue:@"id,name,email" forKey:@"fields"];
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                         PFUser *user = [PFUser user];
+                         user.username = [FBSDKAccessToken currentAccessToken].userID;
+                         user.password = @"myfieldareapassword";
+                         user.email = result[@"email"];
+                         
+                         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                 if (!error) {
+                                         // Hooray! Let them use the app now.
+                                 } else {
+                                         NSString *errorString = [error userInfo][@"error"];
+                                         // Show the errorString somewhere and let the user try again.
+                                 }
+                         }];
+
+                }
+         }];
+       
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
