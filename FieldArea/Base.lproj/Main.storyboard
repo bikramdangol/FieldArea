@@ -59,20 +59,9 @@
                         <color key="backgroundColor" red="0.60318798619301262" green="0.77699317037489424" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="H7R-Fh-wBi"/>
-                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hll-ZL-7Co"/>
                             <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LVw-pa-n2b"/>
-                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S4i-Pe-14Q"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Hll-ZL-7Co"/>
-                                <exclude reference="S4i-Pe-14Q"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="centerView" destination="JJ5-Tr-1Ta" id="SxR-Si-eOV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
