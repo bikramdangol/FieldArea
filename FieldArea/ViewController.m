@@ -33,7 +33,7 @@ FBSDKLoginButton *loginButton;
         if ([FBSDKAccessToken currentAccessToken]) {
                 // User is logged in, do work such as go to next view controller.
                 [self saveLoggedInUserInformation];
-                
+                [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
         }
         
 //        PFUser *user = [PFUser user];
