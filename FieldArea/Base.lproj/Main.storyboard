@@ -101,6 +101,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5oC-ag-oyV">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Gci-A2-IzD"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdm-J9-gzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
