@@ -83,10 +83,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lr6-7k-s9E">
-                                <rect key="frame" x="267" y="288" width="66" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved list goes here." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lr6-7k-s9E">
+                                <rect key="frame" x="213" y="287" width="175" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="MuH-1p-qsC"/>
+                                    <constraint firstAttribute="width" constant="175" id="MuH-1p-qsC"/>
                                     <constraint firstAttribute="height" constant="25" id="nPz-CY-No8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -107,12 +107,54 @@
                                 <action selector="logoutPressed:" destination="Wzf-lw-CpW" id="9Rf-h0-Mls"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wNo-pO-sK1">
+                            <connections>
+                                <action selector="addBarButtonItemPressed:" destination="Wzf-lw-CpW" id="FCP-rf-ZbN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="THE-Xc-Dc6" kind="show" identifier="homeToAreaCalculatorSegue" id="Vwm-0p-73T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdm-J9-gzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949" y="209"/>
+        </scene>
+        <!--Area Calculator View Controller-->
+        <scene sceneID="vHf-Tr-5mn">
+            <objects>
+                <viewController id="THE-Xc-Dc6" customClass="AreaCalculatorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X7S-C2-GWJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tsd-wL-lho"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gFA-nO-73T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field Area Calculator Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buO-rL-iPD">
+                                <rect key="frame" x="190" y="289" width="221" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kKx-zm-vvD"/>
+                                    <constraint firstAttribute="width" constant="221" id="wZc-tz-Ph5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="buO-rL-iPD" firstAttribute="centerY" secondItem="gFA-nO-73T" secondAttribute="centerY" id="FfM-83-C56"/>
+                            <constraint firstItem="buO-rL-iPD" firstAttribute="centerX" secondItem="gFA-nO-73T" secondAttribute="centerX" id="wlA-Xh-UnF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gub-QR-RJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2650" y="209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NBR-ja-T9o">

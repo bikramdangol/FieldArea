@@ -1,28 +1,18 @@
 //
-//  HomeViewController.m
+//  AreaCalculatorViewController.m
 //  FieldArea
 //
-//  Created by Bikram Dangol on 12/5/15.
+//  Created by Bikram Dangol on 12/6/15.
 //  Copyright © 2015 AppCoders. All rights reserved.
 //
 
-#import "HomeViewController.h"
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "AreaCalculatorViewController.h"
 
-@interface HomeViewController ()
+@interface AreaCalculatorViewController ()
 
 @end
 
-@implementation HomeViewController
-
-- (IBAction)logoutPressed:(UIBarButtonItem *)sender {
-        [[FBSDKLoginManager new] logOut];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (IBAction)addBarButtonItemPressed:(UIBarButtonItem *)sender {
-        [self performSegueWithIdentifier:@"homeToAreaCalculatorSegue" sender:nil];
-}
+@implementation AreaCalculatorViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

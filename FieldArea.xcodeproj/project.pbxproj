@@ -18,6 +18,7 @@
 		598ABC841C000152001782B4 /* FieldAreaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 598ABC831C000152001782B4 /* FieldAreaUITests.m */; };
 		59A289171C13945600B1EEA5 /* FieldArea.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A289161C13945600B1EEA5 /* FieldArea.png */; };
 		59A2891C1C140E7900B1EEA5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2891B1C140E7900B1EEA5 /* HomeViewController.m */; };
+		59A2891F1C14C24700B1EEA5 /* AreaCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2891E1C14C24700B1EEA5 /* AreaCalculatorViewController.m */; };
 		76E0404FD2074B4ED8CD7E05 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63164FE09535EEBEC89A3068 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		59A289161C13945600B1EEA5 /* FieldArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FieldArea.png; sourceTree = "<group>"; };
 		59A2891A1C140E7900B1EEA5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		59A2891B1C140E7900B1EEA5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		59A2891D1C14C24700B1EEA5 /* AreaCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaCalculatorViewController.h; sourceTree = "<group>"; };
+		59A2891E1C14C24700B1EEA5 /* AreaCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaCalculatorViewController.m; sourceTree = "<group>"; };
 		63164FE09535EEBEC89A3068 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E140E60004836584247E1F61 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FF0CB3F18F54745594310FB7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				59A2891A1C140E7900B1EEA5 /* HomeViewController.h */,
 				59A2891B1C140E7900B1EEA5 /* HomeViewController.m */,
 				598ABC641C000152001782B4 /* Main.storyboard */,
+				59A2891D1C14C24700B1EEA5 /* AreaCalculatorViewController.h */,
+				59A2891E1C14C24700B1EEA5 /* AreaCalculatorViewController.m */,
 				598ABC6A1C000152001782B4 /* Assets.xcassets */,
 				598ABC6C1C000152001782B4 /* LaunchScreen.storyboard */,
 				598ABC6F1C000152001782B4 /* Info.plist */,
@@ -344,6 +349,7 @@
 				598ABC631C000152001782B4 /* ViewController.m in Sources */,
 				598ABC601C000152001782B4 /* AppDelegate.m in Sources */,
 				598ABC5D1C000152001782B4 /* main.m in Sources */,
+				59A2891F1C14C24700B1EEA5 /* AreaCalculatorViewController.m in Sources */,
 				59A2891C1C140E7900B1EEA5 /* HomeViewController.m in Sources */,
 				598ABC691C000152001782B4 /* FieldArea.xcdatamodeld in Sources */,
 			);
