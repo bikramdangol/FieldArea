@@ -102,7 +102,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="5oC-ag-oyV">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Gci-A2-IzD"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Gci-A2-IzD">
+                            <connections>
+                                <action selector="logoutPressed:" destination="Wzf-lw-CpW" id="9Rf-h0-Mls"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

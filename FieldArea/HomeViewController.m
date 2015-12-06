@@ -7,12 +7,18 @@
 //
 
 #import "HomeViewController.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface HomeViewController ()
 
 @end
 
 @implementation HomeViewController
+
+- (IBAction)logoutPressed:(UIBarButtonItem *)sender {
+        [[FBSDKLoginManager new] logOut];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
