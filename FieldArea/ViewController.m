@@ -13,15 +13,19 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *loginButtonView;
+
 @end
 
 @implementation ViewController
 
+FBSDKLoginButton *loginButton;
+
 - (void)viewDidLoad {
         [super viewDidLoad];
         // Do any additional setup after loading the view, typically from a nib.
-        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-        loginButton.center = self.view.center;
+        loginButton = [[FBSDKLoginButton alloc] init];
+        [self placeLoginButtonAtCenter:self.view.center withOffsetY:100.0];
         loginButton.delegate = self;
         loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
         [self.view addSubview:loginButton];
@@ -92,6 +96,21 @@
                  }
          }];
 
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+        // do something after rotation
+        NSLog(@"Rotated");
+        NSLog(@"%f,%f", self.view.center.x, self.view.center.y);
+        [self placeLoginButtonAtCenter:self.view.center withOffsetY:100.0];
+}
+
+- (void) placeLoginButtonAtCenter:(CGPoint)centerPoint withOffsetY:(double) offsetY
+{
+        CGPoint loginButtonCenterPoint = CGPointMake(centerPoint.x, (centerPoint.y + offsetY));
+        NSLog(@"%f,%f", loginButtonCenterPoint.x, loginButtonCenterPoint.y);
+        loginButton.center = loginButtonCenterPoint;
 }
 
 @end

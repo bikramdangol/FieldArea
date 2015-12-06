@@ -16,6 +16,7 @@
 		598ABC6E1C000152001782B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598ABC6C1C000152001782B4 /* LaunchScreen.storyboard */; };
 		598ABC791C000152001782B4 /* FieldAreaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 598ABC781C000152001782B4 /* FieldAreaTests.m */; };
 		598ABC841C000152001782B4 /* FieldAreaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 598ABC831C000152001782B4 /* FieldAreaUITests.m */; };
+		59A289171C13945600B1EEA5 /* FieldArea.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A289161C13945600B1EEA5 /* FieldArea.png */; };
 		76E0404FD2074B4ED8CD7E05 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63164FE09535EEBEC89A3068 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		598ABC7F1C000152001782B4 /* FieldAreaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FieldAreaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		598ABC831C000152001782B4 /* FieldAreaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FieldAreaUITests.m; sourceTree = "<group>"; };
 		598ABC851C000152001782B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59A289161C13945600B1EEA5 /* FieldArea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FieldArea.png; sourceTree = "<group>"; };
 		63164FE09535EEBEC89A3068 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E140E60004836584247E1F61 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FF0CB3F18F54745594310FB7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		598ABC5B1C000152001782B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59A289161C13945600B1EEA5 /* FieldArea.png */,
 				598ABC5C1C000152001782B4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				598ABC6E1C000152001782B4 /* LaunchScreen.storyboard in Resources */,
+				59A289171C13945600B1EEA5 /* FieldArea.png in Resources */,
 				598ABC6B1C000152001782B4 /* Assets.xcassets in Resources */,
 				598ABC661C000152001782B4 /* Main.storyboard in Resources */,
 			);

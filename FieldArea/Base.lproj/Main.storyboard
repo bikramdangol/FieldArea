@@ -16,11 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ5-Tr-1Ta">
+                                <rect key="frame" x="200" y="174" width="200" height="253"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FieldArea.png" translatesAutoresizingMaskIntoConstraints="NO" id="oFE-S5-iMU">
+                                        <rect key="frame" x="20" y="20" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="95i-WC-pGn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field Area Measurement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV3-q4-seL">
+                                        <rect key="frame" x="20" y="188" width="160" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="15u-vZ-1Rc"/>
+                                            <constraint firstAttribute="width" constant="160" id="MfE-oZ-xl6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.53776992176974869" green="0.70494271857068957" blue="0.94802024147727271" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.79267922710768379" green="1" blue="0.7178112001210587" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="SV3-q4-seL" firstAttribute="centerX" secondItem="JJ5-Tr-1Ta" secondAttribute="centerX" id="83F-U3-OvB"/>
+                                    <constraint firstAttribute="height" constant="253" id="BSk-9J-GEM"/>
+                                    <constraint firstAttribute="trailing" secondItem="SV3-q4-seL" secondAttribute="trailing" constant="20" id="BrB-jJ-FRX"/>
+                                    <constraint firstItem="SV3-q4-seL" firstAttribute="top" secondItem="oFE-S5-iMU" secondAttribute="bottom" constant="8" id="Cqo-1d-lOQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="Dah-TS-77l"/>
+                                    <constraint firstItem="oFE-S5-iMU" firstAttribute="top" secondItem="JJ5-Tr-1Ta" secondAttribute="top" constant="20" id="Fax-go-IFc"/>
+                                    <constraint firstItem="SV3-q4-seL" firstAttribute="leading" secondItem="JJ5-Tr-1Ta" secondAttribute="leading" constant="20" id="jcp-5T-PHo"/>
+                                    <constraint firstAttribute="trailing" secondItem="oFE-S5-iMU" secondAttribute="trailing" constant="20" id="kDl-wx-xGM"/>
+                                    <constraint firstItem="oFE-S5-iMU" firstAttribute="leading" secondItem="JJ5-Tr-1Ta" secondAttribute="leading" constant="20" id="nS8-kn-Lmt"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="83F-U3-OvB"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60318798619301262" green="0.77699317037489424" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="H7R-Fh-wBi"/>
+                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Hll-ZL-7Co"/>
+                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LVw-pa-n2b"/>
+                            <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S4i-Pe-14Q"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hll-ZL-7Co"/>
+                                <exclude reference="S4i-Pe-14Q"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="centerView" destination="JJ5-Tr-1Ta" id="SxR-Si-eOV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="440" y="209"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FieldArea.png" width="232" height="217"/>
+    </resources>
 </document>
