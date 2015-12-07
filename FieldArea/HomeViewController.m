@@ -38,7 +38,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-        self.availableFieldAreaArray = [@[@"Bikram's Field", @"Babu's Field", @"Aaron's Field"] mutableCopy];
+        self.availableFieldAreaArray = [@[@{@"name": @"Bikram's Field", @"date": @"12/07/2015"},
+                                          @{@"name": @"Babu's Field", @"date": @"12/06/2015"},
+                                          @{@"name": @"Aaron's Field", @"date": @"12/05/2015"}] mutableCopy];
         
 }
 
@@ -69,8 +71,8 @@
 {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = self.availableFieldAreaArray[indexPath.row];
-        cell.detailTextLabel.text = @"12/06/2015";
+        cell.textLabel.text = self.availableFieldAreaArray[indexPath.row][@"name"];
+        cell.detailTextLabel.text = self.availableFieldAreaArray[indexPath.row][@"date"];;
         return cell;
 }
 
