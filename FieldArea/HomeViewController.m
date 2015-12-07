@@ -7,23 +7,25 @@
 //
 
 #import "HomeViewController.h"
+#import <Parse/Parse.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface HomeViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *availableFieldAreaArray;
+@property (strong, nonatomic) NSMutableArray *availableFieldArray;
 
 @end
 
 @implementation HomeViewController
 
--(NSMutableArray *)availableFieldAreaArray
+-(NSMutableArray *)availableFieldArray
 {
-        if (!_availableFieldAreaArray){
-                _availableFieldAreaArray = [[NSMutableArray alloc] init];
+        if (!_availableFieldArray){
+                _availableFieldArray = [[NSMutableArray alloc] init];
         }
-        return _availableFieldAreaArray;
+        return _availableFieldArray;
 }
 
 - (IBAction)logoutPressed:(UIBarButtonItem *)sender {
@@ -37,10 +39,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-        self.availableFieldAreaArray = [@[@{@"name": @"Bikram's Field", @"date": @"12/07/2015"},
-                                          @{@"name": @"Babu's Field", @"date": @"12/06/2015"},
-                                          @{@"name": @"Aaron's Field", @"date": @"12/05/2015"}] mutableCopy];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+        // Find all Field records by the current user
+        PFUser *user = [PFUser currentUser];
+        if (user != nil) {
+                PFQuery *query = [PFQuery queryWithClassName:@"Field"];
+                [query whereKey:@"user" equalTo:user];
+                [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                        if (!error) {
+                                self.availableFieldArray = [objects mutableCopy];
+                                [self.tableView reloadData];
+                        }
+                }];
+        }
         
 }
 
@@ -63,16 +77,21 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        return [self.availableFieldAreaArray count];
-        //return 3;
+        return [self.availableFieldArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = self.availableFieldAreaArray[indexPath.row][@"name"];
-        cell.detailTextLabel.text = self.availableFieldAreaArray[indexPath.row][@"date"];;
+        cell.textLabel.text = self.availableFieldArray[indexPath.row][@"name"];
+        NSDate *date = (NSDate *)self.availableFieldArray[indexPath.row][@"date"];
+        
+        NSDateFormatter *dateformat=[[NSDateFormatter alloc]init];
+        [dateformat setDateFormat:@"mm/dd/yyyy"]; // Date formatter
+        NSString *dateString = [dateformat stringFromDate:date];
+        
+        cell.detailTextLabel.text = dateString;
         return cell;
 }
 

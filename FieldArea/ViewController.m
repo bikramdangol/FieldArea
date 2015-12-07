@@ -33,8 +33,7 @@ FBSDKLoginButton *loginButton;
         
         if ([FBSDKAccessToken currentAccessToken]) {
                 // User is logged in, do work such as go to next view controller.
-                [self saveLoggedInUserInformation];
-                [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
+                [self signInParse];
         }
         
 //        PFUser *user = [PFUser user];
@@ -68,8 +67,6 @@ FBSDKLoginButton *loginButton;
         if (!error) {
                 NSLog(@"Login successful");
                 [self signUpInParse];
-                [self saveLoggedInUserInformation];
-                [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
         }
         else
         {
@@ -81,24 +78,6 @@ FBSDKLoginButton *loginButton;
 - (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
 {
       NSLog(@"Logged Out");  
-}
-
-- (void) saveLoggedInUserInformation
-{
-        NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
-        [parameters setValue:@"id,name,email" forKey:@"fields"];
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-                 if (!error) {
-                         PFObject *fbCurrentUserID = [PFObject objectWithClassName:@"FBCurrentUserID"];
-                         fbCurrentUserID[@"currentUserID"] = [FBSDKAccessToken currentAccessToken].userID;
-                         fbCurrentUserID[@"currentUsername"] = result[@"name"];
-                         fbCurrentUserID[@"currentUserEmail"] = result[@"email"];
-                         NSLog(@"fetched user:%@", result);
-                         [fbCurrentUserID saveInBackground];
-                 }
-         }];
-
 }
 
 // Added this method just to save facebook ID as a parse username to create a parse user.
@@ -117,8 +96,17 @@ FBSDKLoginButton *loginButton;
                          [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                  if (!error) {
                                          // Hooray! Let them use the app now.
+                                         [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+                                                 if (!error) {
+                                                         [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
+
+                                                 }
+                                         }];
+                                        
                                  } else {
                                          NSString *errorString = [error userInfo][@"error"];
+                                         NSLog(@"%@", errorString);
+                                         [self signInParse];
                                          // Show the errorString somewhere and let the user try again.
                                  }
                          }];
@@ -127,6 +115,34 @@ FBSDKLoginButton *loginButton;
          }];
        
 }
+
+- (void) signInParse
+{
+        NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+        [parameters setValue:@"id,name,email" forKey:@"fields"];
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                 if (!error) {
+                         PFUser *user = [PFUser user];
+                         user.username = [FBSDKAccessToken currentAccessToken].userID;
+                         user.password = @"myfieldareapassword";
+                         user.email = result[@"email"];
+                         
+                         [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+                                 if (!error) {
+                                         [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
+
+                                 }
+                                 else
+                                 {
+                                         NSLog(@"Parse login failed!");
+                                 }
+                         }];
+                 }
+         }];
+        
+}
+
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
