@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -150,7 +151,7 @@
             </objects>
             <point key="canvasLocation" x="1949" y="209"/>
         </scene>
-        <!--Area Calculator View Controller-->
+        <!--Measurement-->
         <scene sceneID="vHf-Tr-5mn">
             <objects>
                 <viewController id="THE-Xc-Dc6" customClass="AreaCalculatorViewController" sceneMemberID="viewController">
@@ -172,13 +173,34 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBx-Hy-HBW">
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QYk-7D-Kzh"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="AEe-aS-5wH">
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="ngD-ff-91w"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BBx-Hy-HBW" secondAttribute="trailing" constant="-20" id="8RG-jr-VrB"/>
+                            <constraint firstItem="BBx-Hy-HBW" firstAttribute="leading" secondItem="gFA-nO-73T" secondAttribute="leadingMargin" constant="-20" id="DBE-Ii-B6Q"/>
                             <constraint firstItem="buO-rL-iPD" firstAttribute="centerY" secondItem="gFA-nO-73T" secondAttribute="centerY" id="FfM-83-C56"/>
+                            <constraint firstItem="Tsd-wL-lho" firstAttribute="top" secondItem="BBx-Hy-HBW" secondAttribute="bottom" id="Jk2-nP-hLb"/>
                             <constraint firstItem="buO-rL-iPD" firstAttribute="centerX" secondItem="gFA-nO-73T" secondAttribute="centerX" id="wlA-Xh-UnF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Measurement" id="Xjt-cd-BWa">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Ah2-TP-ZH3"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="&gt;" id="W8i-XQ-4kx"/>
+                            <barButtonItem title="&lt;" id="uxb-eR-GY9"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gub-QR-RJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
