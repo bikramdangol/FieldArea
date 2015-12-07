@@ -64,7 +64,7 @@
                             <constraint firstItem="JJ5-Tr-1Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LVw-pa-n2b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="liY-7E-tj5"/>
+                    <navigationItem key="navigationItem" title="Field Area Measurement" id="liY-7E-tj5"/>
                     <connections>
                         <segue destination="Wzf-lw-CpW" kind="show" identifier="loginToHomeSegue" id="seO-9g-xUj"/>
                     </connections>

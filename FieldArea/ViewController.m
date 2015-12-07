@@ -24,6 +24,7 @@ FBSDKLoginButton *loginButton;
 - (void)viewDidLoad {
         [super viewDidLoad];
         // Do any additional setup after loading the view, typically from a nib.
+        NSLog( @"### running FB sdk version: %@", [FBSDKSettings sdkVersion] );
         loginButton = [[FBSDKLoginButton alloc] init];
         [self placeLoginButtonAtCenter:self.view.center withOffsetY:100.0];
         loginButton.delegate = self;
